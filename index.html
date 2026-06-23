@@ -76,6 +76,7 @@ nav{
   border-bottom:3px solid transparent;transition:border-color .15s;
 }
 .nav-links a:hover{border-color:var(--red);}
+.nav-actions{display:flex;align-items:center;gap:12px;}
 .nav-cta{
   font-family:'Bangers',cursive;font-size:18px;letter-spacing:2px;
   background:var(--whatsapp);color:var(--white);padding:8px 22px;
@@ -83,6 +84,7 @@ nav{
   text-decoration:none;transition:transform .1s,box-shadow .1s;display:inline-flex;
   align-items:center;gap:6px;
 }
+.nav-cta.email{background:var(--black);color:var(--yellow);}
 .nav-cta:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--black);}
 .mobile-toggle{
   display:none;background:var(--black);color:var(--yellow);
@@ -213,6 +215,7 @@ nav{
 }
 .btn-pop:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--black);}
 .btn-wa{background:var(--whatsapp);color:var(--white);}
+.btn-email{background:var(--black);color:var(--yellow);}
 .btn-red{background:var(--red);color:var(--white);}
 .btn-blue{background:var(--blue);color:var(--white);}
 .btn-white{background:var(--white);color:var(--black);}
@@ -679,6 +682,15 @@ footer::after{
   font-family:'Permanent Marker',cursive;font-size:18px;
   color:var(--white);transform:rotate(-1.5deg);display:inline-block;
 }
+.foot-email-btn{
+  font-family:'Bangers',cursive;font-size:20px;letter-spacing:2px;
+  background:var(--yellow);color:var(--black);
+  padding:10px 22px;border:4px solid var(--red);
+  box-shadow:5px 5px 0 var(--red);text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;margin-top:22px;
+  transition:transform .12s,box-shadow .12s;
+}
+.foot-email-btn:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--red);}
 .foot-cols{
   display:grid;grid-template-columns:repeat(3,1fr);gap:30px;
   position:relative;z-index:1;margin-bottom:40px;
@@ -725,6 +737,9 @@ footer::after{
 
 /* ═══ RESPONSIVE ═══ */
 @media (max-width:1024px){
+  nav{padding:0 3%;}
+  .nav-links{gap:14px;}
+  .nav-cta{font-size:15px;padding:7px 14px;}
   .roster-grid{grid-template-columns:repeat(2,1fr);}
   .signature-grid{grid-template-columns:repeat(2,1fr);}
   .why-grid{grid-template-columns:repeat(2,1fr);}
@@ -744,7 +759,9 @@ footer::after{
   .nav-links.open{display:flex;}
   .nav-links a{padding:14px 5%;border-bottom:2px solid var(--black);}
   .mobile-toggle{display:block;}
-  .nav-cta{font-size:14px;padding:6px 14px;}
+  .nav-actions{gap:8px;}
+  .nav-cta{font-size:14px;padding:6px 12px;}
+  .nav-cta .label{display:none;}
   
   .ticker{margin-top:72px;}
   .ticker-inner{font-size:15px;letter-spacing:2px;}
@@ -820,9 +837,14 @@ footer::after{
     <li><a href="#signature">Collections</a></li>
     <li><a href="#process">Process</a></li>
   </ul>
-  <a href="https://wa.me/971585119007?text=Hi%20BOOMFA%2C%20I'd%20like%20to%20discuss%20a%20kit%20order" target="_blank" rel="noopener" class="nav-cta">
-    <span>📱</span> WHATSAPP US
-  </a>
+  <div class="nav-actions">
+    <a href="https://wa.me/971585119007?text=Hi%20BOOMFA%2C%20I'd%20like%20to%20discuss%20a%20kit%20order" target="_blank" rel="noopener" class="nav-cta">
+      <span>📱</span> <span class="label">WHATSAPP US</span>
+    </a>
+    <a href="mailto:info@boomfasports.com?subject=BOOMFA%20kit%20order%20enquiry" class="nav-cta email">
+      <span>📧</span> <span class="label">EMAIL US</span>
+    </a>
+  </div>
   <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
 </nav>
 
@@ -883,6 +905,9 @@ footer::after{
     <div class="hero-btns">
       <a href="https://wa.me/971585119007?text=Hi%20BOOMFA%2C%20I'd%20like%20to%20discuss%20a%20kit%20order" target="_blank" rel="noopener" class="btn-pop btn-wa">
         <span>📱</span> WHATSAPP US
+      </a>
+      <a href="mailto:info@boomfasports.com?subject=BOOMFA%20kit%20order%20enquiry" class="btn-pop btn-email">
+        <span>📧</span> EMAIL US
       </a>
       <a href="#originators" class="btn-pop btn-red">↓ MEET THE ORIGINATORS</a>
     </div>
@@ -1245,6 +1270,9 @@ footer::after{
         <a href="https://wa.me/971585119007?text=Hi%20BOOMFA%2C%20I'd%20like%20to%20discuss%20a%20kit%20order" target="_blank" rel="noopener">
           <span class="em">📱</span> +971 58 511 9007
         </a>
+        <a href="mailto:info@boomfasports.com?subject=BOOMFA%20kit%20order%20enquiry">
+          <span class="em">📧</span> info@boomfasports.com
+        </a>
         <a href="https://instagram.com/boomfasportswear" target="_blank" rel="noopener">
           <span class="em">📷</span> @BOOMFASPORTSWEAR
         </a>
@@ -1271,7 +1299,9 @@ footer::after{
       <a href="https://instagram.com/boomfasportswear" target="_blank" rel="noopener">
         <span class="em">📷</span> @boomfasportswear
       </a>
-      <p><span class="em">📧</span> info@boomfasports.com</p>
+      <a href="mailto:info@boomfasports.com?subject=BOOMFA%20kit%20order%20enquiry">
+        <span class="em">📧</span> info@boomfasports.com
+      </a>
       <p><span class="em">🌐</span> boomfasports.com</p>
     </div>
     <div class="foot-col">
